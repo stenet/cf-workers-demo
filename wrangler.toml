@@ -2,6 +2,7 @@ name = "workers-test"
 main = "src/index.ts"
 compatibility_date = "2023-04-18"
 workers_dev = false
+usage_model = "bundled"
 
 durable_objects.bindings = [
   { name = "MY_DURABLE", class_name = "Durable" }
