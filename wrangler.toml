@@ -1,0 +1,27 @@
+name = "workers-test"
+main = "src/index.ts"
+compatibility_date = "2023-04-18"
+workers_dev = false
+
+durable_objects.bindings = [
+  { name = "MY_DURABLE", class_name = "Durable" }
+]
+
+r2_buckets = [
+  { binding = "MY_BUCKET", bucket_name = "test-bucket", preview_bucket_name = "test-bucket" }
+]
+
+kv_namespaces = [
+  { binding = "MY_KV", id = "4b8566e313714e99b92dcb5e6abb1f6b", preview_id = "4b8566e313714e99b92dcb5e6abb1f6b" }
+]
+
+[[migrations]]
+tag = "v1"
+new_classes = ["Durable"]
+
+[[queues.producers]]
+binding = "MY_QUEUE"
+queue = "test-queue"
+
+[[queues.consumers]]
+queue = "test-queue"
